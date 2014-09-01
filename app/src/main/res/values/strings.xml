@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SMIR</string>
+    <string name="app_version">Version</string>
+    <string name="pref_server_num">Numéro Serveur</string>
+    <string name="pref_server_num_summary">Numéro flotte du serveur SNISI</string>
+    <string name="menu_settings">Paramètres</string>
+    <string name="notif_sms_sent">Rapport envoyé par SMS. Une réponse vous parviendra bientôt.</string>
+    <string name="notif_sms_failed">Échec de l\'envoi du rapport par SMS. Veuillez réessayer dans quelques minutes.</string>
+
+    <string name="pref_username">Identifiant</string>
+    <string name="pref_username_summary">Identifiant SNISI</string>
+
+</resources>
