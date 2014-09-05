@@ -308,10 +308,14 @@ public class MainActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Android HW button for settings
 		switch (item.getItemId()) {
-			case R.id.menu_settings:
-				Intent i = new Intent(this, Preferences.class);
-				startActivityForResult(i, Constants.RESULT_SETTINGS);
-				break;
+            case R.id.menu_alert:
+                Intent a = new Intent(MainActivity.this, AlertActivity.class);
+                startActivity(a);
+                break;
+            case R.id.menu_settings:
+                Intent i = new Intent(this, Preferences.class);
+                startActivityForResult(i, Constants.RESULT_SETTINGS);
+                break;
             case R.id.app_version:
                 // Toast.makeText(getApplicationContext(), getString(R.string.app_version_num), Toast.LENGTH_LONG).show();
                 displayVersionPopup();

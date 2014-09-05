@@ -2,11 +2,12 @@ package com.yeleman.smir;
 
 public class Constants {
 
-    public static final String version = "1.1b";
+    public static final String version = "1.2";
     public static final String server_number = "70062552";
 
 	public static final int RESULT_SETTINGS = 1;
 	public static final String KEYWORD = "smir";
+	public static final String KEYALERT= "\"alert\"";
 	public static final String SPACER = " ";
 
     public static final String ebola = "ebo";
