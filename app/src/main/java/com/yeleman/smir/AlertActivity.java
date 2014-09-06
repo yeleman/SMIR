@@ -24,11 +24,6 @@ public class AlertActivity extends Activity {
     private Spinner spinner;
     private Button btnSubmit;
 
-   // protected EditText input_password;
-   // protected EditText input_case;
-   // protected EditText input_confirmed;
-   // protected EditText input_death;
-
    private static final String[] order_diseases = {
         Constants.ebola, Constants.acute_flaccid_paralysis,
         Constants.influenza_a_h1n1, Constants.cholera,
@@ -83,20 +78,25 @@ public class AlertActivity extends Activity {
                if (checkAllDataOK()) {
                   String sms_str = getSMSString();
                   Log.i("SMIR SMS-OUT", sms_str);
-                  boolean succeeded = submitText(sms_str);
-                  if (succeeded) {
-                     resetAllFields();
-                  }
+                  resetAllFields();
+                  // boolean succeeded = submitText(sms_str);
+                  // if (succeeded) {
+                  //    resetAllFields();
+                  // }
                }
             }
         });
    }
 
    protected void resetAllFields() {
-      // this.input_password.setText(null);
-      // this.input_case.setText(null);
-      // this.input_confirmed.setText(null);
-      // this.input_death.setText(null);
+       final EditText input_case = (EditText) findViewById(R.id.input_case);
+       final EditText input_confirmed = (EditText) findViewById(R.id.input_confirmed);
+       final EditText input_death = (EditText) findViewById(R.id.input_death);
+       final EditText input_password = (EditText) findViewById(R.id.input_password);
+       input_password.setText(null);
+       input_case.setText(null);
+       input_confirmed.setText(null);
+       input_death.setText(null);
    }
 
    protected boolean checkAllDataOK() {
@@ -112,25 +112,26 @@ public class AlertActivity extends Activity {
       if (username.isEmpty()){
          errors.add("L'identifiant doit être renseigné dans le paramètre.");
       }
-
+       if (Integer.parseInt(input_case.getText().toString()) == 0 &&
+           Integer.parseInt(input_confirmed.getText().toString()) == 0 &&
+           Integer.parseInt(input_death.getText().toString()) == 0){
+           displayErrorPopup("Tout est à zero");
+           return false;
+       }
        if (!SharedChecks._check_not_empty(input_case)){
-           errors.add("Champs cas suspect est obligatoire");
-           displayErrorPopup(errors.get(0));
+           displayErrorPopup("Champs cas suspect est obligatoire");
            return false;
        }
        if (!SharedChecks._check_not_empty(input_confirmed)){
-           errors.add("Champs confirmé est obligatoire");
-           displayErrorPopup(errors.get(0));
+           displayErrorPopup("Champs confirmé est obligatoire");
            return false;
        }
        if (!SharedChecks._check_not_empty(input_death)){
-           errors.add("Champs décès est obligatoire");
-           displayErrorPopup(errors.get(0));
+           displayErrorPopup("Champs décès est obligatoire");
            return false;
        }
        if (!SharedChecks._check_not_empty(input_password)){
-           errors.add("Mot de passe est obligatoire");
-           displayErrorPopup(errors.get(0));
+           displayErrorPopup("Mot de passe est obligatoire");
            return false;
        }
        if (!SharedChecks._check_not_valid(input_case, input_confirmed)){

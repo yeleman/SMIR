@@ -7,20 +7,20 @@ public class Constants {
 
 	public static final int RESULT_SETTINGS = 1;
 	public static final String KEYWORD = "smir";
-	public static final String KEYALERT= "\"alert\"";
+	public static final String KEYALERT= "alert";
 	public static final String SPACER = " ";
 
-    public static final String ebola = "ebo";
-    public static final String acute_flaccid_paralysis = "afp";
-    public static final String influenza_a_h1n1 = "iah";
-    public static final String cholera = "chol";
-    public static final String red_diarrhea = "redd";
-    public static final String measles = "mea";
-    public static final String yellow_fever = "yefe";
-    public static final String neonatal_tetanus = "nete";
-    public static final String meningitis = "meni";
-    public static final String rabies = "rabi";
-    public static final String acute_measles_diarrhea = "amd";
-    public static final String other_notifiable_disease = "ond";
+    public static final String ebola = "ebola";
+    public static final String acute_flaccid_paralysis = "acute_flaccid_paralysis";
+    public static final String influenza_a_h1n1 = "influenza_a_h1n1";
+    public static final String cholera = "cholera";
+    public static final String red_diarrhea = "red_diarrhea";
+    public static final String measles = "measles";
+    public static final String yellow_fever = "yellow_fever";
+    public static final String neonatal_tetanus = "neonatal_tetanus";
+    public static final String meningitis = "meningitis";
+    public static final String rabies = "rabies";
+    public static final String acute_measles_diarrhea = "acute_measles_diarrhea";
+    public static final String other_notifiable_disease = "other_notifiable_disease";
 
 }
