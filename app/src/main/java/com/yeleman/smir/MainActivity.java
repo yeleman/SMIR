@@ -143,11 +143,6 @@ public class MainActivity extends Activity {
          layout.addView(button_submit);
 	}
 
-	// private View TextView(String namefield2) {
-	// 	// TODO Auto-generated method stub
-	// 	return null;
-	// }
-
     private View TextView(final String namefield2) {
         final View label;
         label = new TextView(this);

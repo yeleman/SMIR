@@ -9,6 +9,8 @@ import java.util.Vector;
 import java.util.GregorianCalendar;
 import java.util.Calendar;
 
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.DatePicker;
 
@@ -79,5 +81,18 @@ public class SharedChecks {
         errors.add("«" + fieldName + "» doit être un vendredi.");
         return false;
     }
+
+    public static boolean is_empty(EditText editText) {
+
+        String text = editText.getText().toString().trim();
+        editText.setError(null);
+        // length 0 means there is no text
+        if (text.isEmpty()) {
+            editText.setError("Champs requis");
+            return false;
+        }
+        return true;
+    }
+
 
 }
