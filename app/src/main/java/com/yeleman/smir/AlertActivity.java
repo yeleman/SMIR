@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -76,30 +77,18 @@ public class AlertActivity extends Activity {
 
       validated();
       btnSubmit.setOnClickListener(new View.OnClickListener() {
-         @Override
-         public void onClick(View v) {
-            if (checkAllDataOK()) {
-               String sms_str = getSMSString();
-               Log.i("SMIR SMS-OUT", sms_str);
-               resetAllFields();
-               boolean succeeded = submitText(sms_str);
-               if (succeeded) {
-                  resetAllFields();
-               }
-            }
-         }
+          @Override
+          public void onClick(View v) {
+              if (checkAllDataOK()) {
+                  String sms_str = getSMSString();
+                  Log.i("SMIR SMS-OUT", sms_str);
+                  boolean succeeded = submitText(sms_str);
+                  if (succeeded) {
+                      finish();
+                  }
+              }
+          }
       });
-   }
-
-   protected void resetAllFields() {
-      final EditText input_case = (EditText) findViewById(R.id.input_case);
-      final EditText input_confirmed = (EditText) findViewById(R.id.input_confirmed);
-      final EditText input_death = (EditText) findViewById(R.id.input_death);
-      final EditText input_password = (EditText) findViewById(R.id.input_password);
-      input_password.setText(null);
-      input_case.setText(null);
-      input_confirmed.setText(null);
-      input_death.setText(null);
    }
 
    private void validated() {
@@ -211,7 +200,9 @@ public class AlertActivity extends Activity {
       try {
          SmsManager sms = SmsManager.getDefault();
          sms.sendTextMessage(phoneNumber, null, message, null, null);
-         Toast.makeText(getApplicationContext(), getString(R.string.notif_sms_sent), Toast.LENGTH_LONG).show();
+          Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.notif_sms_sent), Toast.LENGTH_LONG);
+          toast.setGravity(Gravity.CENTER, 0, 0);
+          toast.show();
       } catch (Exception e) {
          Toast.makeText(getApplicationContext(), getString(R.string.notif_sms_sent), Toast.LENGTH_LONG).show();
          e.printStackTrace();
@@ -275,4 +266,6 @@ public class AlertActivity extends Activity {
       AlertDialog helpDialog = helpBuilder.create();
       helpDialog.show();
    }
+
 }
+
