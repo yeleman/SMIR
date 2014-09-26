@@ -56,6 +56,7 @@ public class MainActivity extends Activity {
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
 		//setContentView(R.layout.activity_main);
 		ScrollView scrollv = new ScrollView(this);
 		LinearLayout layout = new LinearLayout(this);
@@ -63,6 +64,7 @@ public class MainActivity extends Activity {
         layout.setOrientation(LinearLayout.VERTICAL);
         scrollv.addView(layout);
         setContentView(scrollv);
+
 
         disease_list = new Hashtable<String, String>();
         disease_list.put(Constants.ebola, "EBOLA");
@@ -77,7 +79,6 @@ public class MainActivity extends Activity {
         disease_list.put(Constants.rabies, "Rage");
         disease_list.put(Constants.acute_measles_diarrhea, "Diarrhée sévère rougeole");
         disease_list.put(Constants.other_notifiable_disease, "Autres MADOs");
-
 
         cap_fields = new Hashtable<String, Hashtable<String, EditText>>();
         for(int i=0;i<order_diseases.length;i++) {
@@ -188,7 +189,7 @@ public class MainActivity extends Activity {
 
         // USERNAME
 		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String username = sharedPrefs.getString("username", "null");
+        String username = sharedPrefs.getString("username", null);
         if (username.isEmpty()){
         	errors.add("L'identifiant doit être renseigné dans le paramètre.");
         }
@@ -228,7 +229,7 @@ public class MainActivity extends Activity {
 
 	protected String getSMSString() {
 		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-		String username = sharedPrefs.getString("username", "null");
+		String username = sharedPrefs.getString("username", null);
 
 
 		String sms_text = Constants.KEYWORD;
@@ -262,7 +263,7 @@ public class MainActivity extends Activity {
 	protected boolean submitText(String message) {
 		// preferences
 		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-		String phoneNumber = sharedPrefs.getString("serverPhoneNumber", "null");
+		String phoneNumber = sharedPrefs.getString("serverPhoneNumber", null);
 		try {
 			SmsManager sms = SmsManager.getDefault();
 			sms.sendTextMessage(phoneNumber, null, message, null, null);

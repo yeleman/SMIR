@@ -2,7 +2,7 @@ package com.yeleman.smir;
 
 public class Constants {
 
-    public static final String version = "1.2";
+    public static final String version = "1.3";
     public static final String server_number = "70062552";
 
 	public static final int RESULT_SETTINGS = 1;

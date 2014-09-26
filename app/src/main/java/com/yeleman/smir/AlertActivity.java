@@ -141,7 +141,7 @@ public class AlertActivity extends Activity {
       Vector<String> errors = new Vector<String>();
       
       SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-      String username = sharedPrefs.getString("username", "null");
+      String username = sharedPrefs.getString("username", null);
       if (username.isEmpty()){
          errors.add("L'identifiant doit être renseigné dans le paramètre.");
       }
@@ -196,7 +196,7 @@ public class AlertActivity extends Activity {
    protected boolean submitText(String message) {
         // preferences
       SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-      String phoneNumber = sharedPrefs.getString("serverPhoneNumber", "null");
+      String phoneNumber = sharedPrefs.getString("serverPhoneNumber", null);
       try {
          SmsManager sms = SmsManager.getDefault();
          sms.sendTextMessage(phoneNumber, null, message, null, null);
@@ -213,7 +213,7 @@ public class AlertActivity extends Activity {
 
    protected String getSMSString() {
       SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-      String username = sharedPrefs.getString("username", "null");
+      String username = sharedPrefs.getString("username", null);
       String disease = String.valueOf(order_diseases[spinner.getSelectedItemPosition()]);
 
       final EditText input_case = (EditText) findViewById(R.id.input_case);
